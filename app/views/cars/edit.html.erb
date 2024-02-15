@@ -1,0 +1,30 @@
+<div class="container">
+  <%= form_with(model: @car, local: true) do |form| %>
+    <div class="mb-3">
+      <%= form.label :brand, class: "form-label" %>
+      <%= form.text_field :brand, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :model, class: "form-label" %>
+      <%= form.text_field :model, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :price, class: "form-label" %>
+      <%= form.number_field :price, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :capacity, class: "form-label" %>
+      <%= form.number_field :capacity, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :user_id, class: "form-label" %>
+      <%= form.select :user_id, options_for_select(User.all.map { |user| [user.email, user.id] }, selected: @car.user_id), {}, class: "form-control" %>
+    </div>
+
+    <%= form.submit "Update Car", class: "btn btn-primary" %>
+  <% end %>
+</div>
