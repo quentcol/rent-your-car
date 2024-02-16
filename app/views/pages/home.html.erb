@@ -1,0 +1,35 @@
+<div class="hero">
+  <div> Rent your car</div>
+  <div class="hero-container">
+    <h1>Go far with your rental car</h1>
+    <%= link_to "Explore cars", cars_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<div class="container mt-1">
+  <div class="d-flex justify-content-center">
+    <div class="container text-center mb-3 mt-5">
+     <h2>Explore the recently added cars</h2>
+     <p>See if there is a car for you!</p>
+    </div>
+  </div>
+  <div class="main-grid mb-4">
+    <% @cars[-3..-1].each do |car| %>
+      <%= link_to(car_path(car)) do %>
+        <div class="card">
+          <div class="card-body">
+           <div class="d-flex" style="gap: 12px;">
+            <h4><%= car.brand %></h4>
+            <h4 style="font-weight: 200;"><%= car.model %></h4>
+           </div>
+            <p>Capacity: <%= car.capacity %></p>
+          </div>
+          <div class="d-flex" style="gap: 12px;">
+            <h4>€ <%= car.price %></h4>
+            <p>per day</p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

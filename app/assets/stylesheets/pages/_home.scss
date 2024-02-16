@@ -3,3 +3,25 @@
 //   background-color: lightgray;
 // }
 
+.hero {
+  background-image: url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1883&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  height: 720px;
+  color: white;
+  padding: 24px;
+}
+
+.hero-container {
+  align-items: center;
+  margin-top: 250px;
+  padding: 36px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  gap: 64px;
+}
+
