@@ -3,43 +3,25 @@
 //   background-color: lightgray;
 // }
 
-.banner {
-   background-size: cover;
-   background-position: center;
-   padding: 150px 0;
- }
+.hero {
+  background-image: url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1883&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  height: 720px;
+  color: white;
+  padding: 24px;
+}
 
- .banner h1 {
-   margin: 0;
-   color: white;
-   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-   font-size: 32px;
-   font-weight: bold;
- }
+.hero-container {
+  align-items: center;
+  margin-top: 250px;
+  padding: 36px;
+}
 
- .banner p {
-   font-size: 20px;
-   color: white;
-   opacity: .7;
-   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
- }
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  gap: 64px;
+}
 
- .opening h1 {
-    font-family: "Open Sans", sans-serif;
-  }
-
-
- .card {
-   width: 300px;
-   border: 1px solid #ccc;
-   border-radius: 5px;
-   margin: 50px;
-   padding: 10px;
-   display: inline-block;
-   vertical-align: top;
- }
-
- .card img {
-   width: 100%;
-   height: auto;
- }
