@@ -1,97 +1,26 @@
-body{
-  background-color: lightgray;
-}
-.banner {
+// // Specific CSS for your home-page
+// body{
+//   background-color: lightgray;
+// }
+
+.hero {
+  background-image: url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1883&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
-}
-.banner h1 {
-  margin: 0;
+  height: 720px;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+  padding: 24px;
 }
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+.hero-container {
+  align-items: center;
+  margin-top: 250px;
+  padding: 36px;
 }
-.cards {
+
+.main-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-.card-product {
-  overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-}
-.card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
-.card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-.card-product .card-product-infos {
-  padding: 16px;
-}
-.banner {
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
-}
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
-}
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-.opening h1 {
-   font-family: "Open Sans", sans-serif;
- }
-.card {
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 50px;
-  padding: 10px;
-  display: inline-block;
-  vertical-align: top;
-}
-.card img {
-  width: 100%;
-  height: auto;
-}
-.form-control{
-  border-radius: 15px;
+  justify-content: space-between;
+  gap: 64px;
 }

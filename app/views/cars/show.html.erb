@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header">
+    Car Details
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @car.brand %> <%= @car.model %></h5>
+    <p class="card-text">Price: <%= @car.price %></p>
+    <p class="card-text">Capacity: <%= @car.capacity %></p>
+    <!-- Add more details as needed -->
+  </div>
+  <div class="card-footer">
+    <%= link_to "See All", cars_path, class: "btn btn-secondary" %>
+    <%= link_to "Edit car", edit_car_path, class: "btn btn-secondary" %>
+    <%= link_to "Remove car", cars_path, class: "btn btn-secondary" %>
+  </div>
+</div>
