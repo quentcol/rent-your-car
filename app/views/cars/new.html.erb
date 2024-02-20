@@ -25,6 +25,10 @@
       <%= form.select :user_id, options_for_select(User.all.map { |user| [user.email, user.id] }), {}, class: "form-control" %>
     </div>
 
+    <div class="mb-3">
+      <%= form.file_field :photos, multiple: true %>
+    </div>
+
     <%= form.submit "Create Car", class: "btn btn-primary" %>
   <% end %>
   <%= link_to "All Cars", cars_path %>

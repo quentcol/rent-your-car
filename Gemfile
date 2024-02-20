@@ -8,6 +8,7 @@ gem "rails", "~> 7.1.3"
 # OUR ADDDED GEMS
 gem "devise"
 
+gem "cloudinary"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
