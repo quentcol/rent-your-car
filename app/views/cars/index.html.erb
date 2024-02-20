@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>All Cars</h1>
+  <h1 class="title-cars">All Cars</h1>
 
   <div class="row">
     <% @cars.each do |car| %>
@@ -13,11 +13,11 @@
             <p class="card-text">Capacity: <%= car.capacity %></p>
             <p class="card-text">Owner: <%= car.user.email %></p>
             <!-- You can add additional information or buttons here -->
-            <a href="<%= car_path(car) %>" class="btn btn-primary">View Details</a>
+            <a href="<%= car_path(car) %>" class="car-details btn btn-info">View Details</a>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-  <%= link_to "New Car", new_car_path, class: "btn btn-primary mb-3" %>
+  <%= link_to "New Car", new_car_path, class: "New-car btn btn-primary mb-3" %>
 </div>
