@@ -11,3 +11,29 @@
 @import "components/index";
 @import "pages/index";
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px;
+  justify-content: space-evenly;
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 30px;
+  width: 250px; /* Adjust the width as needed */
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px 5px 0 0;
+}
+
+.card-details p {
+  margin: 10px 0;
+}

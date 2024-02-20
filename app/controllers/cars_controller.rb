@@ -6,6 +6,7 @@ class CarsController < ApplicationController
   end
 
   def show
+    @car = Car.find(params[:id])
   end
 
   def new
@@ -14,7 +15,6 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.new(car_params)
-
     if @car.save
       redirect_to @car, notice: 'Car was successfully created.'
     else
@@ -45,6 +45,6 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:brand, :model, :price, :capacity, :user_id)
+    params.require(:car).permit(:brand, :model, :price, :capacity, :user_id, photos: [])
   end
 end
