@@ -1,23 +1,18 @@
-<div class="container">
-  <h1>All Cars</h1>
-
-  <div class="row">
-    <% @cars.each do |car| %>
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <!-- You can replace the image source with an actual image URL or a placeholder -->
-          <img class="card-img-top" src="..." alt="Car image">
-          <div class="card-body">
-            <h5 class="card-title"><%= car.brand %> <%= car.model %></h5>
-            <p class="card-text">Price: $<%= car.price %></p>
-            <p class="card-text">Capacity: <%= car.capacity %></p>
-            <p class="card-text">Owner: <%= car.user.email %></p>
-            <!-- You can add additional information or buttons here -->
-            <a href="<%= car_path(car) %>" class="btn btn-primary">View Details</a>
-          </div>
-        </div>
+<div class="card-container">
+  <% @cars.each do |car| %>
+    <div class="card">
+      <%= cl_image_tag("THE_IMAGE_ID_FROM_LIBRARY",
+      width: 400, height: 300, crop: :fill) %>
+      <div class="card-details">
+        <p><strong>Brand:</strong> <%= car.brand %> <%= car.model %></p>
+        <p><strong>Price:</strong> <%= car.price %></p>
+        <p><strong>Capacity:</strong> <%= car.capacity %></p>
+        <p><strong>Owner:</strong> <%= car.user.email %></p>
+        <div id="statusDisplay"></div>
+        <%= link_to "View Details", car_path(car), style: "background-color: blue; color: white; text-decoration: none; padding: 5px 10px; border-radius: 5px;" %>
       </div>
-    <% end %>
-  </div>
-  <%= link_to "New Car", new_car_path, class: "btn btn-primary mb-3" %>
+    </div>
+  <% end %>
 </div>
+
+<%= link_to 'New car', new_car_path %>

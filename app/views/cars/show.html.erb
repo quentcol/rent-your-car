@@ -1,16 +1,45 @@
-<div class="card">
-  <div class="card-header">
-    Car Details
+<div class="show-container" style="padding: 40px;">
+  <h1>Car details</h1>
+
+  <div>
+    <% if @car.photos.attached? %>
+      <% @car.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+    <% else %>
+      <p>No photos available</p>
+    <% end %>
   </div>
-  <div class="card-body">
-    <h5 class="card-title"><%= @car.brand %> <%= @car.model %></h5>
-    <p class="card-text">Price: <%= @car.price %></p>
-    <p class="card-text">Capacity: <%= @car.capacity %></p>
-    <!-- Add more details as needed -->
+
+  <div>
+    <strong>Brand:</strong>
+    <%= @car.brand %>
   </div>
-  <div class="card-footer">
-    <%= link_to "See All", cars_path, class: "btn btn-secondary" %>
-    <%= link_to "Edit car", edit_car_path, class: "btn btn-secondary" %>
-    <%= link_to "Remove car", cars_path, class: "btn btn-secondary" %>
+
+  <div>
+    <strong>Model:</strong>
+    <%= @car.model %>
   </div>
+
+  <div>
+    <strong>Price:</strong>
+    <%= @car.price %>
+  </div>
+
+  <div>
+    <strong>Capacity:</strong>
+    <%= @car.capacity %>
+  </div>
+
+  <div>
+    <strong>Owner:</strong>
+    <%= @car.user.email %>
+  </div>
+
+  <%= link_to 'Edit', edit_car_path(@car) %> |
+  <%= link_to 'Back', cars_path %>
+  <%= link_to "Delete",
+    car_path(@car),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
 </div>
