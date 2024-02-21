@@ -1,17 +1,21 @@
 <%= render 'layouts/navbar' %>
 <div class="card-container">
-  <% @cars.each do |car| %>
-    <div class="card">
-      <%= cl_image_tag(car.photos.first.key, width: 400, height: 300, crop: :fill) if car.photos.attached? %>
-      <div class="card-details">
-        <p><strong>Brand:</strong> <%= car.brand %> <%= car.model %></p>
-        <p><strong>Price:</strong> <%= car.price %></p>
-        <p><strong>Capacity:</strong> <%= car.capacity %></p>
-        <p><strong>Owner:</strong> <%= car.user.email %></p>
-        <div id="statusDisplay"></div>
-        <%= link_to "View Details", car_path(car), style: "background-color: blue; color: white; text-decoration: none; padding: 5px 10px; border-radius: 5px;" %>
+  <% if @cars.present? %>
+    <% @cars.each do |car| %>
+      <div class="card">
+        <%= cl_image_tag(car.photos.first.key, width: 400, height: 300, crop: :fill) if car.photos.attached? %>
+        <div class="card-details">
+          <p><strong>Brand:</strong> <%= car.brand %> <%= car.model %></p>
+          <p><strong>Price:</strong> <%= car.price %></p>
+          <p><strong>Capacity:</strong> <%= car.capacity %></p>
+          <p><strong>Owner:</strong> <%= car.user.email %></p>
+          <div id="statusDisplay"></div>
+          <%= link_to "View Details", car_path(car), style: "background-color: blue; color: white; text-decoration: none; padding: 5px 10px; border-radius: 5px;" %>
+        </div>
       </div>
-    </div>
+    <% end %>
+  <% else %>
+    <p>No cars available.</p>
   <% end %>
 </div>
 
