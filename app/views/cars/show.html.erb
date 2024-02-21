@@ -1,3 +1,4 @@
+
 <div class="index-nav-bar">
     <a style="text-decoration: none;" href="<%= root_path %>">
       <div class="logo">Rent your car</div>
@@ -33,48 +34,3 @@
   </div>
 
 
-<div class="show-container" style="padding: 40px;">
-  <h1>Car details</h1>
-
-  <div>
-    <% if @car.photos.attached? %>
-      <% @car.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
-    <% else %>
-      <p>No photos available</p>
-    <% end %>
-  </div>
-
-  <div>
-    <strong>Brand:</strong>
-    <%= @car.brand %>
-  </div>
-
-  <div>
-    <strong>Model:</strong>
-    <%= @car.model %>
-  </div>
-
-  <div>
-    <strong>Price:</strong>
-    <%= @car.price %>
-  </div>
-
-  <div>
-    <strong>Capacity:</strong>
-    <%= @car.capacity %>
-  </div>
-
-  <div>
-    <strong>Owner:</strong>
-    <%= @car.user.email %>
-  </div>
-
-  <%= link_to 'Edit', edit_car_path(@car) %> |
-  <%= link_to 'Back', cars_path %>
-  <%= link_to "Delete",
-    car_path(@car),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-</div>
