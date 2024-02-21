@@ -1,9 +1,45 @@
-<%= render 'layouts/navbar' %>
-<div class="card-container">
-  <% if @cars.present? %>
+
+<div class="index-nav-bar">
+    <a style="text-decoration: none;" href="<%= root_path %>">
+      <div class="logo">Rent your car</div>
+    </a>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="menu">
+      <div class="dropdown">
+        <button class="dropbtn" style="background-color: #0c4ae2; color: white; border-style: none;">
+          <i class="fa-solid fa-user" style="color: white; font-size: 20px;"></i>
+        </button>
+        <div class="dropdown-content" style="border-radius: 10px;">
+          <%= link_to "All Cars", cars_path, style: "border-bottom-style: outset;" %>
+          <%= link_to 'List your car', new_car_path, style: "border-bottom-style: outset;" %>
+          <a href="#">Rent a car</a>
+        </div>
+      </div>
+
+      <div class="user-links-container">
+        <% if user_signed_in? %>
+          <%= button_to "logout", destroy_user_session_path, method: :delete, style: "background-color: #0c4ae2; color: white; border-style: none;" %>
+        <% else %>
+          <!-- If user is not signed in, display login and register links -->
+          <%= link_to 'Login', new_user_session_path, style: "color: black; text-decoration: none;" %>
+          <%= link_to 'Register', new_user_registration_path, style: "color: black; text-decoration: none;" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+ 
+
+<div class="index-container">
+  <div class="card-container">
     <% @cars.each do |car| %>
       <div class="card">
-        <%= cl_image_tag(car.photos.first.key, width: 400, height: 300, crop: :fill) if car.photos.attached? %>
+        <%= cl_image_tag(car.photos.first.key, width: 300, height: 200, crop: :fill) if car.photos.attached? %>
         <div class="card-details">
           <p><strong>Brand:</strong> <%= car.brand %> <%= car.model %></p>
           <p><strong>Price:</strong> <%= car.price %></p>
@@ -14,9 +50,6 @@
         </div>
       </div>
     <% end %>
-  <% else %>
-    <p>No cars available.</p>
-  <% end %>
+  </div>
 </div>
 
-<%= link_to 'New car', new_car_path %>

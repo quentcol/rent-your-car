@@ -1,36 +1,110 @@
+<div class="site-container">
+  <div class="nav-bar">
+    <div class="logo">
+      <a style="text-decoration: none;" href="<%= root_path %>">
+      <div class="logo">Rent your car</div>
+    </a>
+    </div>
 
-<div class="hero">
-  <%= render 'layouts/navbar' %>
-  <div class="hero-container">
-    <h1>Go far with your rental car</h1>
-    <%= link_to "Explore cars", cars_path, class: "btn btn-primary" %>
-  </div>
-</div>
+    <div class="menu">
+      <div class="dropdown">
+        <button class="dropbtn" style="background-color: black; color: white; border-style: none;">
+          <i class="fa-solid fa-user" style="color: white; font-size: 20px;"></i>
+        </button>
+        <div class="dropdown-content" style="border-radius: 10px;">
+          <%= link_to "All Cars", cars_path, style: "border-bottom-style: outset;" %>
+          <%= link_to 'List your car', new_car_path, style: "border-bottom-style: outset;" %>
+          <a href="#">Rent a car</a>
+        </div>
+      </div>
 
-<div class="container mt-1">
-  <div class="d-flex justify-content-center">
-    <div class="container text-center mb-3 mt-5">
-     <h2>Explore the recently added cars</h2>
-     <p>See if there is a car for you!</p>
+      <div class="user-links-container">
+      <% if user_signed_in? %>
+        <%= button_to "logout", destroy_user_session_path, method: :delete, style: "background-color: black; color: white; border-style: none;" %>
+      <% else %>
+        <!-- If user is not signed in, display login and register links -->
+        <%= link_to 'Login', new_user_session_path, style: "color: white; text-decoration: none;" %>
+        <%= link_to 'Register', new_user_registration_path, style: "color: white; text-decoration: none;" %>
+      <% end %>
+    </div>
     </div>
   </div>
-  <div class="main-grid mb-4">
-    <% @cars[-3..-1].each do |car| %>
-      <%= link_to(car_path(car)) do %>
-        <div class="card">
-          <div class="card-body">
-           <div class="d-flex" style="gap:12px;">
-            <h4><%= car.brand %></h4>
-            <h4 style="font-weight:200;"><%= car.model %></h4>
-           </div>
-            <p>Capacity: <%= car.capacity %></p>
-          </div>
-          <div class="d-flex" style="gap: 12px;">
-            <h4>€<%= car.price %></h4>
-            <p>per day</p>
+
+  <div class="main-container">
+    <div class="site-explore" style="background-image: url('<%= image_path("background.jpg") %>');">
+      <div class="find-your-car">
+        <h3>Unlock Your Next Adventure: Rent the Ride, Live the Experience</h3>
+      </div>
+
+      <div class="advantage">
+        <div>
+          <p>24/7 Customer Support</p>
+        </div>
+        <div>
+          <p>Wide Range of Vehicles</p>
+        </div>
+        <div>
+          <p>Flexible Booking Options</p>
+        </div>
+      </div>
+
+      <div class="search-container">
+        <div class="row justify-content-center">
+          <div class="col-md-18">
+            <form class="form" action="/search" method="GET">
+              <div class="form-group">
+                <label for="pickupLocation">Pick-up Location</label>
+                <input type="text" class="form-control" id="pickupLocation" name="pickupLocation" placeholder="Enter pick-up location">
+              </div>
+              <div class="form-group">
+                <label for="pickUpDate">Pick-up Date</label>
+                <input type="date" class="form-control" id="pickUpDate" name="pickUpDate">
+              </div>
+              <div class="form-group">
+                <label for="pickUpTime">Pick-up Time</label>
+                <input type="time" class="form-control" id="pickUpTime" name="pickUpTime">
+              </div>
+              <div class="form-group">
+                <label for="returnDate">Return Date</label>
+                <input type="date" class="form-control" id="returnDate" name="returnDate">
+              </div>
+              <%= link_to cars_path do %>
+                <button type="submit" class="btn btn-primary">Explore</button>
+              <% end %>
+            </form>
           </div>
         </div>
-      <% end %>
-    <% end %>
+      </div>
+    </div>
+
+    <div class="site-promotion">
+      <div class="promotion">
+        <div style="
+    font-size: 40px;"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        <div>
+          <h3>Competitive Prices</h3>
+          <p>We offer competitive prices that fit your budget. Whether you need a vehicle for a short trip or a long-term rental, we have affordable options for you.</p>
+        </div>
+      </div>
+
+      <div class="promotion">
+        <div style="
+    font-size: 40px;"><i class="fa-solid fa-car"></i></div>
+        <div>
+          <h3>Wide Range of Cars</h3>
+          <p>Choose from our wide range of cars to find the perfect vehicle for your needs. From compact cars for city exploration to spacious SUVs for family vacations.</p>
+        </div>
+      </div>
+
+      <div class="promotion">
+        <div style="
+    font-size: 40px;"><i class="fa-solid fa-globe"></i></div>
+        <div>
+          <h3>Find Us Everywhere</h3>
+          <p>With multiple locations across the country, you can find our car rental service everywhere you go, we're conveniently located near popular tourist destinations.</p>
+        </div>
+      <div>
+      </div>
+    </div>
   </div>
 </div>
