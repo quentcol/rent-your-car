@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :users
+
   resources :cars do
-    resources :reviews
-    resources :bookings
+    resources :reviews, only: [:index, :new, :create]
+    resources :bookings, only: [:index, :new, :create]
   end
 end
