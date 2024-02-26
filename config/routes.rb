@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :cars do
-    resources :reviews [:index, :new, :create]
-    resources :bookings [:index, :new, :create]
+    resources :reviews, only: [:index, :new, :create]
+    resources :bookings, only: [:index, :new, :create]
   end
 end
