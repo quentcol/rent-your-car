@@ -1,36 +1,16 @@
 <%= render 'layouts/navbar' %>
-<div class="container">
-  <%= form_with(model: @car, url: cars_path, method: "post") do |form| %>
-    <div class="mb-3">
-      <%= form.label :brand, class: "form-label" %>
-      <%= form.text_field :brand, class: "form-control" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :model, class: "form-label" %>
-      <%= form.text_field :model, class: "form-control" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :price, class: "form-label" %>
-      <%= form.number_field :price, class: "form-control" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :capacity, class: "form-label" %>
-      <%= form.number_field :capacity, class: "form-control" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :user_id, class: "form-label" %>
-      <%= form.select :user_id, options_for_select(User.all.map { |user| [user.email, user.id] }), {}, class: "form-control" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.file_field :photos, multiple: true %>
-    </div>
-
-    <%= form.submit "Create Car", class: "btn btn-primary" %>
+<div class="container" style="padding: 30px 50px">
+  <%= simple_form_for(@car, url: cars_path, method: "post") do |form| %>
+    <%= form.input :brand, label: "Brand", input_html: { class: "form-control" } %>
+    <%= form.input :model, label: "Model", input_html: { class: "form-control" } %>
+    <%= form.input :price, label: "Price", input_html: { class: "form-control" } %>
+    <%= form.input :capacity, label: "Capacity", input_html: { class: "form-control" } %>
+    <%= form.input :city, label: "City", input_html: { class: "form-control" } %>
+    <%= form.input :available_from, label: "Available from", input_html: { class: "form-control" } %>
+    <%= form.input :available_to, label: "Available to", input_html: { class: "form-control" } %>
+    <%= form.input :user_id, collection: User.all.map { |user| [user.email, user.id] }, label: "User", input_html: { class: "form-control" } %>
+    <%= form.input :photo, as: :file %>
+    <%= form.button :submit, "Create Car", class: "btn btn-primary" %>
   <% end %>
   <%= link_to "All Cars", cars_path %>
 </div>
