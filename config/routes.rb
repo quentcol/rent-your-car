@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :cars do
-    resources :reviews
-    resources :bookings
+    resources :reviews [:index, :new, :create]
+    resources :bookings [:index, :new, :create]
   end
 end
