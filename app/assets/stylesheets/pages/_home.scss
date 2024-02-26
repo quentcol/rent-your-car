@@ -23,14 +23,14 @@
 .find-your-car {
   text-align: center;
   color: white;
-  
+
 }
 
 .search-bar-container {
   background-color: rgb(50, 50, 251);
   display: flex;
   justify-content: space-evenly;
-  
+
 }
 
 .form {
@@ -131,3 +131,104 @@
   background-color: #3e8e41;
 }
 
+//Booking Form Styles //
+
+
+
+div.group {
+  margin: 20px;
+  width: 20%;
+}
+
+div.date.inlined {
+  display: inline-block;
+  margin-left: 1%;
+}
+
+label {
+  display: block;
+  font-family: 'Nanum Gothic';
+  padding-bottom: 10px;
+  font-size: 1.25em;
+}
+
+input, select, textarea {
+  border-radius: 2px;
+  border: 2px solid #777;
+  box-sizing: border-box;
+  font-size: 1.25em;
+  font-family: 'Nanum Gothic';
+  padding: 10px;
+}
+
+div.group.inlined input {
+  width: 95%;
+  display: inline-block;
+}
+
+textarea {
+  height: 250px;
+}
+
+hr {
+  border: 1px dotted #ccc;
+}
+
+.name, .Email{
+  background: #0c4ae2;
+  color: white;
+  border-radius: 15px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  margin:5px;
+  width: 40%;
+}
+
+.date{
+  background: #0c4ae2;
+  color: white;
+  border-radius: 15px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  margin:5px;
+  width: 11%;
+}
+
+.Phone{
+  background: #0c4ae2;
+  color: white;
+  border-radius: 15px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  margin:5px;
+  width: 45%;
+}
+
+.message{
+  background: #0c4ae2;
+  color: white;
+  border-radius: 15px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  margin:5px;
+  width: 70%;
+
+}
+
+button {
+  height: 50px;
+  background: rgb(14, 14, 247);
+  border: none;
+  color: white;
+  font-size: 1.25em;
+  font-family: 'Nanum Gothic';
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  border-radius: 15px;
+  background: rgb(18, 24, 101);
+  transition: 0.3s;
+}
