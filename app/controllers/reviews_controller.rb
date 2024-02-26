@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.new(review_params)
     @review.car = @car
 
-    if @revuew.save
+    if @review.save
       redirect_to car_reviews_path(@car), notice: "Review was successfully created."
     else
       render :new
