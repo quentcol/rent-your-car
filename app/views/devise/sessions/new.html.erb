@@ -1,28 +1,58 @@
-<div class="login">
-  <div class="login-grid">
-    <div class="login-form">
-      <h2>Log in</h2>
+<div class="index-nav-bar">
+    <a style="text-decoration: none;" href="<%= root_path %>">
+      <div class="logo">Rent your car</div>
+    </a>
 
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :email,
-                      required: false,
-                      autofocus: true,
-                      input_html: { autocomplete: "email", class: 'form-transparent' } %>
-          <%= f.input :password,
-                      required: false,
-                      input_html: { autocomplete: "current-password", class: 'form-transparent'} %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="menu">
+      <div class="dropdown">
+        <button class="dropbtn" style="background-color: #0c4ae2; color: white; border-style: none;">
+          <i class="fa-solid fa-user" style="color: white; font-size: 20px;"></i>
+        </button>
+        <div class="dropdown-content" style="border-radius: 10px;">
+          <%= link_to "All Cars", cars_path, style: "border-bottom-style: outset;" %>
+          <%= link_to 'List your car', new_car_path, style: "border-bottom-style: outset;" %>
+          <a href="#">Rent a car</a>
         </div>
+      </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, "Log in" %>
-        </div>
-      <% end %>
-
-      <div class="login-options">
-        <%= render "devise/shared/links" %>
+      <div class="user-links-container">
+        <% if user_signed_in? %>
+          <%= button_to "logout", destroy_user_session_path, method: :delete, style: "background-color: #0c4ae2; color: white; border-style: none;" %>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path, style: "color: black; text-decoration: none;" %>
+          <%= link_to 'Register', new_user_registration_path, style: "color: black; text-decoration: none;" %>
+        <% end %>
       </div>
     </div>
   </div>
+
+<div class="login-form">
+  <div class="text-center">
+    <h2>Log in</h2>
+  </div>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email", class: 'form-transparent' } %>
+        <%= f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password", class: 'form-transparent'} %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Log in" %>
+      </div>
+    <% end %>
+
+    <div class="login-options">
+      <%= render "devise/shared/links" %>
+    </div>
 </div>

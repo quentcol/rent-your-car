@@ -1,80 +1,40 @@
-.login {
-  padding: 50px;
-  background-image: linear-gradient(90deg, rgba(0,0,0,0.644782913165266) 0%, rgba(0,0,0,0) 100%), url("https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  color: white;
-}
-
-.login-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 100%;
-}
-
 .login-form {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding: 16px;
+}
+
+.form-inputs {
+  width: 50%;
   align-items: center;
-  padding: 32px;
-
+  margin: auto;
 }
 
-form {
-  width: 100%;
-}
-
-.form-actions {
-  display: flex;
-  justify-content: center;
+.text-center {
+  text-align: left;
 }
 
 .login-options {
-  display: flex;
-  gap: 16px;
-  margin-top: 16px;
-
-  a {
-    text-decoration: none;
-    color: rgb(147, 168, 188);
-  }
-  }
-
-.form-transparent {
-  background-color: rgba(255, 255, 255, 0.5);;
+  text-align: center;
 }
 
-.form-transparent:focus {
-  background-color: rgba(255, 255, 255, 0.5);;
+.form-actions {
+  text-align: center;
 }
 
-.form-text {
+.form-actions input[type="submit"] {
+  background-color: rgb(50, 50, 251);
+  border: none;
   color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  border-radius: 25px;
 }
-
-.sign-up {
-  background-image: linear-gradient(90deg, rgba(0,0,0,0.644782913165266) 0%, rgba(0,0,0,0) 100%), url("https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  color: white;
-}
-
-.login-button {
-  margin-top: 16px;
-
-  a {
-    text-decoration: none;
-    color: rgb(147, 168, 188);
-  }
-  }
-
-  .forget-password {
-    background-image: linear-gradient(90deg, rgba(0,0,0,0.644782913165266) 0%, rgba(0,0,0,0) 100%), url("https://images.unsplash.com/photo-1511527844068-006b95d162c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    color: white;
-  }
