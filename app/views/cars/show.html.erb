@@ -1,36 +1,73 @@
-
 <div class="index-nav-bar">
-    <a style="text-decoration: none;" href="<%= root_path %>">
-      <div class="logo">Rent your car</div>
-    </a>
+  <a style="text-decoration: none;" href="<%= root_path %>">
+    <div class="logo">Rent your car</div>
+  </a>
 
-    <div class="search-bar">
-      <input type="text" placeholder="Search...">
-      <button type="submit"><i class="fas fa-search"></i></button>
-    </div>
-
-    <div class="menu">
-      <div class="dropdown">
-        <button class="dropbtn" style="background-color: #0c4ae2; color: white; border-style: none;">
-          <i class="fa-solid fa-user" style="color: white; font-size: 20px;"></i>
-        </button>
-        <div class="dropdown-content" style="border-radius: 10px;">
-          <%= link_to "All Cars", cars_path, style: "border-bottom-style: outset;" %>
-          <%= link_to 'List your car', new_car_path, style: "border-bottom-style: outset;" %>
-          <a href="#">Rent a car</a>
-        </div>
-      </div>
-
-      <div class="user-links-container">
-        <% if user_signed_in? %>
-          <%= button_to "logout", destroy_user_session_path, method: :delete, style: "background-color: #0c4ae2; color: white; border-style: none;" %>
-        <% else %>
-          <!-- If user is not signed in, display login and register links -->
-          <%= link_to 'Login', new_user_session_path, style: "color: black; text-decoration: none;" %>
-          <%= link_to 'Register', new_user_registration_path, style: "color: black; text-decoration: none;" %>
-        <% end %>
-      </div>
-    </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search...">
+    <button type="submit"><i class="fas fa-search"></i></button>
   </div>
 
 
+  <div class="menu">
+    <div class="dropdown">
+      <button class="dropbtn" style="background-color: #0c4ae2; color: white; border-style: none;">
+        <i class="fa-solid fa-user" style="color: white; font-size: 20px;"></i>
+      </button>
+      <div class="dropdown-content" style="border-radius: 10px;">
+        <%= link_to "All Cars", cars_path, style: "border-bottom-style: outset;" %>
+        <%= link_to 'List your car', new_car_path, style: "border-bottom-style: outset;" %>
+        <a href="#">Rent a car</a>
+      </div>
+    </div>
+
+    <div class="user-links-container">
+      <% if user_signed_in? %>
+        <%= button_to "logout", destroy_user_session_path, method: :delete, style: "background-color: #0c4ae2; color: white; border-style: none;" %>
+      <% else %>
+        <!-- If user is not signed in, display login and register links -->
+        <%= link_to 'Login', new_user_session_path, style: "color: black; text-decoration: none;" %>
+        <%= link_to 'Register', new_user_registration_path, style: "color: black; text-decoration: none;" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="show-container" style="padding: 40px;">
+  <h1>Car details</h1>
+  <div>
+    <% if @car.photos.attached? %>
+      <% @car.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+    <% else %>
+      <p>No photos available</p>
+    <% end %>
+  </div>
+  <div>
+    <strong>Brand:</strong>
+    <%= @car.brand %>
+  </div>
+  <div>
+    <strong>Model:</strong>
+    <%= @car.model %>
+  </div>
+  <div>
+    <strong>Price:</strong>
+    <%= @car.price %>
+  </div>
+  <div>
+    <strong>Capacity:</strong>
+    <%= @car.capacity %>
+  </div>
+  <div>
+    <strong>Owner:</strong>
+    <%= @car.user.email %>
+  </div>
+  <%= link_to 'Edit', edit_car_path(@car) %> |
+  <%= link_to 'Back', cars_path %>
+  <%= link_to "Delete",
+    car_path(@car),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+</div>

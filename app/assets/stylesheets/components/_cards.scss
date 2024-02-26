@@ -1,0 +1,93 @@
+.index-container {
+  padding: 50px 130px;
+  background-color: white;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+@media screen and (max-width: 1130px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr); /* Reduce to 3 columns */
+  }
+}
+
+/* Small screens */
+@media screen and (max-width: 830px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr); /* Reduce to 2 columns */
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 560px) {
+  .card-container {
+    grid-template-columns: repeat(1, 1fr); /* Reduce to 1 column */
+  }
+}
+
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  background-color: #fff;
+  overflow: hidden;
+  grid-column: span 1;
+  grid-row: span 1;
+  border-style: none;
+  width: 250px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-image {
+  height: 200px;
+}
+
+.card-image img {
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.card-details {
+  padding: 5px;
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.card-details p {
+  margin: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.number {
+  color: rgb(34, 34, 34);
+}
+
+.city {
+  color: rgb(113, 113, 113);
+}
+
+.status {
+  color: rgb(113, 113, 113);
+}
+
+.card a {
+  display: block;
+  padding: 2px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  font-family: arial;
+}
