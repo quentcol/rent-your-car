@@ -1,0 +1,82 @@
+.index-nav-bar {
+  height: 50px;
+  background-color: #0c4ae2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  padding: 30px 170px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: white; /* Change color as needed */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle text shadow */
+  /* Add any other styles you want */
+}
+
+@media screen and (max-width: 1130px) {
+  .logo {
+    font-size: 22px;
+  }
+}
+
+/* medium screens */
+@media screen and (max-width: 830px) {
+  .logo {
+    font-size: 20px;
+  }
+}
+
+/* Small screens */
+@media screen and (max-width: 700px) {
+  .logo {
+    font-size: 15px;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 600px) {
+  .logo {
+    font-size: 12px;
+    width: 100px;
+  }
+}
+
+.search {
+  height: 30px;
+  display: flex;
+  width: 400px;
+  font-size: 13px;
+  border-radius: 30px;
+}
+
+.form-control {
+  border-style: none;
+  font-size: 14px;
+  font-family: arial;
+}
+
+.search-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border-style: none;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.fa-solid {
+  font-weight: bold;
+  font-size: 15px;
+  color: #0c4ae2;
+}
+
+
+

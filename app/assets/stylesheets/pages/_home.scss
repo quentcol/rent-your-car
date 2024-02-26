@@ -12,6 +12,12 @@
   padding: 30px 170px;
 }
 
+@media screen and (max-width: 553px) {
+  .nav-bar {
+    justify-content: center;
+  }
+}
+
 .site-explore {
   height: 500px;
   padding: 100px;
@@ -23,7 +29,6 @@
 .find-your-car {
   text-align: center;
   color: white;
-
 }
 
 .search-bar-container {
@@ -36,20 +41,69 @@
 .form {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: space-evenly;
   gap: 2px;
   height: 80px;
   border-radius: 5px;
-  background-color: #fbfb14;
+  background-color: white;
   align-content: center;
   flex-wrap: wrap;
   padding: 5px;
   color: black;
+  font-family: "Fira Sans", "sans-serif";
 }
+
+@media screen and (max-width: 1130px) {
+  .form {
+    font-size: 15px;
+  }
+}
+
+/* medium screens */
+@media screen and (max-width: 830px) {
+  .form {
+    font-size: 12px;
+  }
+}
+
+/* Small screens */
+@media screen and (max-width: 700px) {
+  .form {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 674px) {
+  .form {
+    height: 45px;
+    width: 65px;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 600px) {
+  .form {
+    font-size: 8px;
+  }
+}
+
 
 .btn-primary {
   height: 70px;
   border-radius: 5px;
+}
+
+@media screen and (max-width: 993px) {
+  .btn-primary  {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 674px) {
+  .btn-primary {
+    height: 40px;
+  }
 }
 
 .form-group {
@@ -59,9 +113,26 @@
   height: 70px;
 }
 
-.justify-content-center {
-  width: 800px;
+@media screen and (max-width: 674px) {
+  .form-group {
+    display: none;
+  }
 }
+
+.form-control {
+  border-radius: 5px;
+  color: #bcbcbc;
+}
+
+@media screen and (max-width: 993px) {
+  .form-control {
+    width: 80px;
+    font-size: 10px;
+  }
+}
+
+
+
 
 .search-container {
   display: flex;
@@ -74,6 +145,34 @@
   justify-content: center;
   gap: 20px;
   color: white;
+}
+
+@media screen and (max-width: 1130px) {
+  .advantage p {
+    font-size: 14px;
+  }
+}
+
+/* medium screens */
+@media screen and (max-width: 830px) {
+  .advantage p {
+    font-size: 12px;
+  }
+}
+
+/* Small screens */
+@media screen and (max-width: 700px) {
+  .advantage p {
+    font-size: 10px;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 600px) {
+  .advantage p {
+    font-size: 9px;
+    text-align: center;
+  }
 }
 
 .site-promotion {
@@ -92,6 +191,56 @@
   align-items: center;
   gap: 20px;
 }
+
+@media screen and (max-width: 1130px) {
+  .promotion-text h3 {
+    font-size: 18px;
+  }
+}
+
+/* medium screens */
+@media screen and (max-width: 830px) {
+  .promotion-text h3 {
+    font-size: 15px;
+  }
+}
+
+/* Small screens */
+@media screen and (max-width: 700px) {
+  .promotion-text h3 {
+    font-size: 12px;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 600px) {
+  .promotion-text h3 {
+    font-size: 10px;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 600px) {
+  .promotion-text h3 {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 1130px) {
+  .promotion-text p {
+    font-size: 16px;
+  }
+}
+
+/* medium screens */
+@media screen and (max-width: 900px) {
+  .promotion-text p {
+    display: none;
+  }
+}
+
+
 
 .menu {
   display: flex;

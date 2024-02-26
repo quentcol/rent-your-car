@@ -51,7 +51,7 @@
       <div class="search-container">
         <div class="row justify-content-center">
           <div class="col-md-18">
-            <form class="form" action="/search" method="GET">
+            <form class="form" action="<%= cars_path %>" method="GET">
               <div class="form-group">
                 <label for="pickupLocation">Pick-up Location</label>
                 <input type="text" class="form-control" id="pickupLocation" name="pickupLocation" placeholder="Enter pick-up location">
@@ -81,7 +81,7 @@
       <div class="promotion">
         <div style="
     font-size: 40px;"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-        <div>
+        <div class="promotion-text">
           <h3>Competitive Prices</h3>
           <p>We offer competitive prices that fit your budget. Whether you need a vehicle for a short trip or a long-term rental, we have affordable options for you.</p>
         </div>
@@ -90,7 +90,7 @@
       <div class="promotion">
         <div style="
     font-size: 40px;"><i class="fa-solid fa-car"></i></div>
-        <div>
+        <div class="promotion-text">
           <h3>Wide Range of Cars</h3>
           <p>Choose from our wide range of cars to find the perfect vehicle for your needs. From compact cars for city exploration to spacious SUVs for family vacations.</p>
         </div>
@@ -99,7 +99,7 @@
       <div class="promotion">
         <div style="
     font-size: 40px;"><i class="fa-solid fa-globe"></i></div>
-        <div>
+        <div class="promotion-text">
           <h3>Find Us Everywhere</h3>
           <p>With multiple locations across the country, you can find our car rental service everywhere you go, we're conveniently located near popular tourist destinations.</p>
         </div>

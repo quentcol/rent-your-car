@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.1].define(version: 2024_02_19_043715) do
+=======
+ActiveRecord::Schema[7.1].define(version: 2024_02_25_180526) do
+>>>>>>> master
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +66,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_043715) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
+    t.date "available_from"
+    t.date "available_to"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
