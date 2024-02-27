@@ -34,6 +34,7 @@
     car_path(@car),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
   %>
+  <%= link_to "Book Now", new_car_booking_path(car_id: @car.id) %>
 </div>
 
 
