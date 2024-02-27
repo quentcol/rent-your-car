@@ -1,35 +1,35 @@
-<% # Nav-bar HTML %>
-
-
-<% #Booking page HTML %>
-<div class="container d-flex ">
-<form action="reservation.php" method="post">
-  <div class="group">
-      <label class="name" for="name">Your Name:</label>
-      <input type="text" id="name" name="user_name" placeholder="John Doe" pattern=[A-Z\sa-z]{3,20} required>
+<%= render 'layouts/navbar' %>
+<div class="container ">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form action="/bookings" method="post">
+        <%= csrf_meta_tags %>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" name="lastName" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+        </div>
+        <div class="form-group">
+          <label for="dateRange">From</label>
+          <input type="date" class="form-control" id="from" name="from" required>
+        </div>
+        <div class="form-group">
+          <label for="dateRange">To</label>
+          <input type="date" class="form-control" id="to" name="to" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Book Now</button>
+      </form>
+    </div>
   </div>
-  <div class="group">
-      <label class="Email" for="email">Your Email:</label>
-      <input type="email" id="email" name="user_email" placeholder="john.doe@email.com" required>
-  </div>
-  <div class="group">
-      <label class="Phone" for="phone">Your Phone:</label>
-      <input type="tel" id="phone" name="user_phone" placeholder="498-348-3872" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4}) required>
-  </div>
-  <hr>
-  <div class="date-inlined">
-      <label class="date" for="checkin-date">Check-in Date:</label>
-      <input type="date" id="checkin-date" name="checkin" required>
-  </div>
-  <div class="date-inlined">
-      <label class="date" for="checkout-date">Check-out Date:</label>
-      <input type="date" id="checkout-date" name="checkout" required>
-  </div>
-  <hr>
-  <div class="group">
-    <label class="message" for="message">Anything Else?</label>
-    <textarea id="message" name="user_message" placeholder="Tell us anything else that might be important." required></textarea>
-  </div>
-  <button type="submit">Book The Car</button>
-</form>
 </div>
