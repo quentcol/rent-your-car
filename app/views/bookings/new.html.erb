@@ -2,34 +2,11 @@
 <div class="container ">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <form action="/bookings" method="post">
-        <%= csrf_meta_tags %>
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input type="text" class="form-control" id="firstName" name="firstName" required>
-        </div>
-        <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" class="form-control" id="lastName" name="lastName" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="phoneNumber">Phone Number</label>
-          <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
-        </div>
-        <div class="form-group">
-          <label for="dateRange">From</label>
-          <input type="date" class="form-control" id="from" name="from" required>
-        </div>
-        <div class="form-group">
-          <label for="dateRange">To</label>
-          <input type="date" class="form-control" id="to" name="to" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Book Now</button>
-      </form>
+      <%= simple_form_for([@car, @booking]) do |f|%>
+        <%= f.input :star_date, as: :date, label: "Start Date:", html5: true, input_html: { style: "height: 40px;" } %>
+        <%= f.input :end_date, as: :date, label: "End Date:", html5: true, input_html: { style: "height: 40px;" } %>
+        <%= f.button :submit, "Book Now", class: "btn btn-primary" ,style: "border-radius:15px; height:40%;" %>
+      <% end %>
     </div>
   </div>
 </div>
