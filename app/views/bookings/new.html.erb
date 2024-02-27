@@ -1,0 +1,12 @@
+<%= render 'layouts/navbar' %>
+<div class="container ">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <%= simple_form_for([@car, @booking]) do |f|%>
+        <%= f.input :star_date, as: :date, label: "Start Date:", html5: true, input_html: { style: "height: 40px;" } %>
+        <%= f.input :end_date, as: :date, label: "End Date:", html5: true, input_html: { style: "height: 40px;" } %>
+        <%= f.button :submit, "Book Now", class: "btn btn-primary" ,style: "border-radius:15px; height:40%;" %>
+      <% end %>
+    </div>
+  </div>
+</div>
