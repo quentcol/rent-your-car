@@ -1,41 +1,97 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
 <%= render 'layouts/navbar' %>
 <div class="show-container" style="padding: 40px;">
-  <h1>Car details</h1>
-  <div>
-    <% if @car.photo.attached? %>
-      <%= cl_image_tag(@car.photo.key, width: 300, height: 200, crop: :fill) if @car.photo.attached? %>
-    <% else %>
-      <p>No photos available</p>
-    <% end %>
+
+
+  <div class="car-information-container">
+
+    <div class="car-position-map">
+      <div id="map"></div>
+    </div>
+    <div class="car-information">
+      <div>
+        <% if @car.photo.attached? %>
+          <%= cl_image_tag(@car.photo.key, width: 300, height: 200, crop: :fill) if @car.photo.attached? %>
+        <% else %>
+          <p>No photos available</p>
+        <% end %>
+      </div>
+
+      <div class="car-information-div">
+        <div>
+          <strong>Brand:</strong>
+          <%= @car.brand %>
+        </div>
+        <div>
+          <strong>Model:</strong>
+          <%= @car.model %>
+        </div>
+        <div>
+          <strong>Price:</strong>
+          <%= @car.price %>
+        </div>
+        <div>
+          <strong>Capacity:</strong>
+          <%= @car.capacity %>
+        </div>
+
+        <div>
+          <strong>City:</strong>
+          <%= @car.city %>
+        </div>
+
+        <div>
+          <strong>Available from:</strong>
+          <%= @car.available_from %>
+        </div>
+
+        <div>
+          <strong>Available to:</strong>
+          <%= @car.available_to %>
+        </div>
+
+        <div>
+          <strong>Owner:</strong>
+          <%= @car.user.email %>
+        </div>
+
+        <div class="show-links">
+          <%= link_to 'Edit', edit_car_path(@car) %>
+          <%= link_to 'Back', cars_path %>
+          <%= link_to "Delete",
+            car_path(@car),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+          <%= link_to "Book Now", new_car_booking_path(car_id: @car.id) %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <strong>Brand:</strong>
-    <%= @car.brand %>
+  <div class="choice"><h2>Excellent choice !</h2></div>
   </div>
-  <div>
-    <strong>Model:</strong>
-    <%= @car.model %>
-  </div>
-  <div>
-    <strong>Price:</strong>
-    <%= @car.price %>
-  </div>
-  <div>
-    <strong>Capacity:</strong>
-    <%= @car.capacity %>
-  </div>
-  <div>
-    <strong>Owner:</strong>
-    <%= @car.user.email %>
-  </div>
-  <%= link_to 'Edit', edit_car_path(@car) %> |
-  <%= link_to 'Back', cars_path %>
-  <%= link_to "Delete",
-    car_path(@car),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
-  <%= link_to "Book Now", new_car_booking_path(car_id: @car.id) %>
 </div>
+
+<script>
+  var map = L.map('map').setView([51.505, -0.09], 13);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19
+  }).addTo(map);
+
+  var marker = L.marker([51.5, -0.09], { draggable: true }).addTo(map);
+
+  marker.on('dragend', function (event) {
+    var position = marker.getLatLng();
+    document.getElementById('latitude_field').value = position.lat;
+    document.getElementById('longitude_field').value = position.lng;
+  });
+</script>
 
 <% if flash[:booking_created] %>
   <script>

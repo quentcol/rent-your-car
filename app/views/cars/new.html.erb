@@ -1,16 +1,83 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <%= render 'layouts/navbar' %>
-<div class="container" style="padding: 30px 50px">
+<div class="container" style="padding: 50px; margin-top: 60px;">
   <%= simple_form_for(@car, url: cars_path, method: "post") do |form| %>
     <%= form.input :brand, label: "Brand", input_html: { class: "form-control" } %>
     <%= form.input :model, label: "Model", input_html: { class: "form-control" } %>
     <%= form.input :price, label: "Price", input_html: { class: "form-control" } %>
     <%= form.input :capacity, label: "Capacity", input_html: { class: "form-control" } %>
     <%= form.input :city, label: "City", input_html: { class: "form-control" } %>
+    <%= form.input :address, label: "Address", input_html: { class: "form-control" } %>
     <%= form.input :available_from, label: "Available from", input_html: { class: "form-control" } %>
     <%= form.input :available_to, label: "Available to", input_html: { class: "form-control" } %>
     <%= form.input :user_id, collection: User.all.map { |user| [user.email, user.id] }, label: "User", input_html: { class: "form-control" } %>
+    <%= form.input :latitude, as: :hidden, input_html: { id: "latitude_field" } %>
+    <%= form.input :longitude, as: :hidden, input_html: { id: "longitude_field" } %>
     <%= form.input :photo, as: :file %>
-    <%= form.button :submit, "Create Car", class: "btn btn-primary" %>
-  <% end %>
-  <%= link_to "All Cars", cars_path %>
-</div>
+     <div class="show-map-container">
+      <div id="map"></div>
+    </div>
+
+    <div> 
+      <%= form.button :submit, "Create Car", class: "btn-new-car" %>
+      <% end %>
+      <%= link_to "All Cars", cars_path, class: "btn-back-to-cars" %>
+      </div>
+    </div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([51.505, -0.09], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19
+    }).addTo(map);
+
+    var marker = L.marker([51.5, -0.09], { draggable: true }).addTo(map);
+
+    marker.on('move', function (event) {
+      var position = marker.getLatLng();
+      document.getElementById('latitude_field').value = position.lat;
+      document.getElementById('longitude_field').value = position.lng;
+    });
+
+    // Function to update marker position based on address input
+    function updateMarker() {
+      var address = document.getElementById('address_input').value;
+
+      // Use OpenStreetMap Nominatim for geocoding
+      axios.get('https://nominatim.openstreetmap.org/search', {
+        params: {
+          q: address,
+          format: 'json',
+          limit: 1
+        }
+      })
+      .then(function (response) {
+        if (response.data.length > 0) {
+          var lat = parseFloat(response.data[0].lat);
+          var lon = parseFloat(response.data[0].lon);
+          marker.setLatLng([lat, lon]);
+          map.setView([lat, lon], 13);
+          document.getElementById('latitude_field').value = lat;
+          document.getElementById('longitude_field').value = lon;
+        } else {
+          alert('Address not found');
+        }
+      })
+      .catch(function (error) {
+        console.error('Error:', error);
+      });
+    }
+
+    // Add locate control to get user's location
+    L.control.locate().addTo(map);
+
+  </script>
