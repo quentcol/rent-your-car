@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
 
     if @booking.save!
 
-      redirect_to car_bookings_path(@car), notice: "Booking was successfully created."
+      redirect_to @car, notice: "Booking was successfully created."
     else
       render :new
     end
