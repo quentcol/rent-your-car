@@ -77,7 +77,6 @@
   </div>
 </div>
 
-
 <script>
   var map = L.map('map').setView([51.505, -0.09], 13);
 
@@ -94,6 +93,8 @@
   });
 </script>
 
-
-
-
+<% if flash[:booking_created] %>
+  <script>
+    alert("<%= j flash[:booking_created] %>");
+  </script>
+<% end %>

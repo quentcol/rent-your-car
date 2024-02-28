@@ -1,0 +1,28 @@
+
+<%= render 'layouts/navbar' %>
+<div class="container mt-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="background:#0c4ae2; color:white;">Booking ID:</th>
+        <th style="background:#0c4ae2; color:white;">Car Model:</th>
+        <th style="background:#0c4ae2; color:white;">Start Date:</th>
+        <th style="background:#0c4ae2; color:white;">End Date:</th>
+      </tr>
+    </thead>
+    <tbody style="background-color:lightgrey;">
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.id %></td>
+          <td><%= booking.customer.name %></td>
+          <td><%= booking.car.model %></td>
+          <td><%= booking.start_date %></td>
+          <td><%= booking.end_date %></td>
+          <td>
+            <%= link_to "Book Now", booking_path(booking), class: "btn btn-primary" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
