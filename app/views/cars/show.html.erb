@@ -37,9 +37,8 @@
   <%= link_to "Book Now", new_car_booking_path(car_id: @car.id) %>
 </div>
 
-
-
-
-
-
-
+<script>
+  <% if flash[:notice] %>
+    alert("<%= j flash[:notice] %>");
+  <% end %>
+</script>
