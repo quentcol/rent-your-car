@@ -1,0 +1,17 @@
+#map {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.map-container {
+  width: 400px;
+  position: sticky;
+  bottom: 0;
+}
+
+.show-map-container {
+  position: relative;
+  height: 280px;
+}

@@ -10,6 +10,9 @@ gem "devise"
 
 gem "cloudinary"
 
+
+gem 'geocoder'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

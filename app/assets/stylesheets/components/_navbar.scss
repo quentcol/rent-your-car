@@ -1,13 +1,19 @@
 .index-nav-bar {
+  position: fixed;
+  top: 0; /* Stick the navbar to the top of the viewport */
+  left: 0;
+  width: 100%; /* Ensure the navbar takes up the full width */
   height: 50px;
   background-color: #0c4ae2;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: black;
-  padding: 30px 170px;
+  padding: 0 170px; /* Adjust padding as needed */
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Ensure the navbar appears above other content */
 }
+
 
 .logo {
   font-family: Arial, sans-serif;
