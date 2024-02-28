@@ -102,3 +102,8 @@
 
 
 
+<% if flash[:booking_created] %>
+  <script>
+    alert("<%= j flash[:booking_created] %>");
+  </script>
+<% end %>
