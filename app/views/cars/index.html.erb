@@ -2,13 +2,13 @@
 <div class="index-container">
   <div class="card-container">
     <% @cars.each do |car| %>
-    
+
       <div class="card">
         <a href="<%= car_path(car) %>">
           <div class="card-image">
-            <%= cl_image_tag(car.photo.key, width: 300, height: 200, crop: :fill) if car.photo.attached? %>
+            <%= cl_image_tag(car.photo.key) if car.photo.attached? %>
           </div>
-          
+
           <div class="card-details">
             <p class="details"><strong>Brand:</strong> <%= car.brand %> <%= car.model %></p>
             <p class="details"><strong>Price:</strong> <%= car.price %></p>
@@ -19,8 +19,7 @@
           </div>
         </a>
       </div>
-    
+
     <% end %>
   </div>
 </div>
-
