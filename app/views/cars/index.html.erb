@@ -1,25 +1,87 @@
 <%= render 'layouts/navbar' %>
-<div class="index-container">
-  <div class="card-container">
-    <% @cars.each do |car| %>
-
-      <div class="card">
-        <a href="<%= car_path(car) %>">
-          <div class="card-image">
-            <%= cl_image_tag(car.photo.key) if car.photo.attached? %>
-          </div>
-
-          <div class="card-details">
-            <p class="details"><strong>Brand:</strong> <%= car.brand %> <%= car.model %></p>
-            <p class="details"><strong>Price:</strong> <%= car.price %></p>
-            <p class="details"><strong>City:</strong> <%= car.city %></p>
-            <p class="details"><strong>Capacity:</strong> <%= car.capacity %></p>
-            <p class="details"><strong>Available form:</strong> <%= car.available_from %></p>
-            <div id="statusDisplay"></div>
-          </div>
-        </a>
-      </div>
-
-    <% end %>
+<div class="page-container" style="display: flex;
+    flex-direction: row-reverse;
+    padding: 20px; align-items: flex-start;
+justify-content: center; margin-top: 80px;">
+    <div class="index-container">
+    <div class="card-container">
+      <% @cars.each do |car| %>
+      
+        <div class="card">
+          <a href="<%= car_path(car) %>">
+            <div class="card-image">
+              <%= cl_image_tag(car.photo.key, width: 300, height: 200, crop: :fill) if car.photo.attached? %>
+            </div>
+            
+            <div class="card-details">
+              <p class="details"><strong>Brand:</strong> <%= car.brand %> <%= car.model %></p>
+              <p class="details"><strong>Price:</strong> <%= car.price %></p>
+              <p class="details"><strong>City:</strong> <%= car.city %></p>
+              <p class="details"><strong>Capacity:</strong> <%= car.capacity %></p>
+              <p class="details"><strong>Available form:</strong> <%= car.available_from %></p>
+              <div id="statusDisplay"></div>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
+
+
+
+<script>
+  var cars = [
+  // ... existing cars
+];
+
+// Initialize the map
+var map = L.map('map').setView([51.505, -0.09], 13);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+// Add a submit event listener to the form
+document.getElementById('carForm').addEventListener('submit', function(event) {
+  // Prevent the form from submitting normally
+  event.preventDefault();
+
+  // Get the form input values
+  var brand = document.getElementById('brand').value;
+  var price = document.getElementById('price').value;
+  var city = document.getElementById('city').value;
+  var capacity = document.getElementById('capacity').value;
+  var available_from = document.getElementById('available_from').value;
+  var latitude = document.getElementById('latitude').value;
+  var longitude = document.getElementById('longitude').value;
+
+  // Create a new car object using the form input values
+  var newCar = {
+    brand: brand,
+    price: price,
+    city: city,
+    capacity: capacity,
+    available_from: available_from,
+    latitude: latitude,
+    longitude: longitude
+  };
+
+  // Add the new car object to the cars array
+  cars.push(newCar);
+
+  // Create a marker for the new car using the latitude and longitude values from the car object
+  var marker = L.marker([newCar.latitude, newCar.longitude]).addTo(map);
+
+  // Create a popup for the marker
+  var popupContent = '<strong>' + newCar.brand + '</strong><br>' +
+                      'Price: ' + newCar.price + '<br>' +
+                      'City: ' + newCar.city + '<br>' +
+                      'Capacity: ' + newCar.capacity + '<br>' +
+                      'Available from: ' + newCar.available_from;
+  marker.bindPopup(popupContent);
+
+  // Save the updated cars array to your database or local storage
+  // ...
+});
+</script>

@@ -3,45 +3,44 @@
   justify-content: center;
   flex-direction: column;
   padding: 16px;
+  margin-top: 60px;
+  background-color: #ffffff;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .form-inputs {
   width: 50%;
   align-items: center;
-  margin: auto;
 }
 
 .text-center {
-  text-align: left;
+  display: flex;
+  justify-content: flex-start;
 }
 
-.login-options {
-  text-align: center;
-}
-
-.form-actions {
-  text-align: center;
+.login-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
 }
 
 .form-actions input[type="submit"] {
-  background-color: rgb(50, 50, 251);
+  background-color: #3232fb;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 5px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
-#new_user {
-  padding: 80px;
-}
 
 .login-button {
   text-align: center;
